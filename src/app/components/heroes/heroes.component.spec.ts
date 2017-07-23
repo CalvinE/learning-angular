@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpModule } from '@angular/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { HeroesComponent } from './heroes.component';
+
+import { HeroService } from '../../services/hero.service';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -8,7 +12,12 @@ describe('HeroesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroesComponent ]
+      imports: [
+        RouterTestingModule,
+        HttpModule
+      ],
+      declarations: [ HeroesComponent ],
+      providers: [HeroService]
     })
     .compileComponents();
   }));
